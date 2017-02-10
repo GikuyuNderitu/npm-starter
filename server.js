@@ -2,11 +2,18 @@
 //Import Dependencies
 const express = require('express');
 const middleware = require('./utils/middleware');
+const mongoose = require('mongoose');
+const db = require('./utils/db')(mongoose);
 //Initialize express
 const app = express()
 
 //Start customized middleware
 middleware(app, express)
+
+
+// Connect to mongoose, Overwrite mpromise, mongoose's deprecated promise implementation
+// mongoose.connect('mongodb://localhost/basic_mongoose')
+mongoose.Promise = global.Promise
 
 
 //Set up routes
