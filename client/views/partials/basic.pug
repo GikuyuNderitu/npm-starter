@@ -1,0 +1,22 @@
+h1 Wolf Pack
+table
+	thead
+		tr
+			th Name
+			th Age
+			th Gender
+			th Kills
+			th Paws
+			th Action
+	tbody
+		each wolf in wolves
+			tr
+				td
+					a(href="/wolves/show/"+wolf.id)= wolf.name
+				td= wolf.age
+				td= wolf.gender
+				td= wolf.kills
+				td= wolf.paws
+				td
+					a.route(href='/wolves/edit/'+wolf.id) Edit
+					a.route(href='/wolves/destroy/'+wolf.id) X

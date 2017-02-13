@@ -1,0 +1,33 @@
+doctype
+html(lang='en')
+	head
+		meta(charset='utf-8')
+		title Wolf Form
+		link(rel="stylesheet", href="/css/main.css")
+		script(src="/jquery/dist/jquery.min.js", type="text/javascript")
+	body
+		.container
+			if wolf
+				h1= 'Editing Wolf'
+				p= 'Name '+wolf.name
+				p= 'Age '+ wolf.age
+				p= 'Gender ' + wolf.gender
+				p= 'Paws ' + wolf.paws
+				p= 'Kills ' + wolf.kills
+			form(action=wolf ? "/wolves/"+wolf.id : '/wolves', method="post")
+				label.row(for="") Name
+					input.input-field(type="text", name="name")
+				label.row(for="") Age (in years)
+					input.input-field(type="number", name="age", min="0")
+				label.row(for="") Gender
+					.radio-buttons
+						input.male(type="radio", value="M", name="gender", checked)
+						input.female(type="radio", value="F", name="gender")
+				label.row(for="") Paws
+					input.input-field(type="number", name='paws', min="0", max="4")
+				label.row(for="") Kills
+					input.input-field(type="number", name='kills', min="0")
+				input.submit(type="submit", value="Submit")
+			a.route(href='/') Go Home
+
+		script(src="/js/app.js", type="text/javascript")

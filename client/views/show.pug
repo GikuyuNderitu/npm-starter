@@ -1,0 +1,21 @@
+doctype
+html(lang='en')
+	head
+		meta(charset='utf-8')
+		title
+		link(rel="stylesheet", href="/css/main.css")
+	body
+		.container
+			label.row(for="") Name
+				span.data= wolf.name
+			label.row(for="") Age
+				span.data= wolf.age
+			label.row(for="") Gender
+				span.data= wolf.gender
+			label.row(for="") Paws
+				span.data= wolf.paws
+			label.row(for="") Kills
+				span.data= wolf.kills
+			a.route(href='/') Go Back
+			a.route(href='/wolves/edit/'+wolf.id)= 'Edit '+wolf.name
+		script(src="/js/app.js", type="text/javascript")
