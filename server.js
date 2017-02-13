@@ -11,8 +11,6 @@ require('./server/config/mongoose');
 require('./server/config/routes')(app)
 
 //Start customized middleware
-const bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({extended: true}))
 require('./server/config/middleware')(app)
 
 
